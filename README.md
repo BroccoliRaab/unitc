@@ -8,9 +8,13 @@ Create an m4 file in ``/tests``.
 
 In that start writing a test case as such:
 
-```
-new_test(test name){
-  test body
+```c
+new_test(test_name){
+  if(condition==1){
+    return 0;
+  }
+  puts("Conditon was false");
+  return 1;
 } 
 ```
 A test is a function that returns an integer and takes no parameters.
