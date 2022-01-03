@@ -9,5 +9,9 @@ new_test(val_dne_0){
 #define len strlen
 new_test(len_eq_2,){
     char str[] = "hi";
-    return (len(str)==2);
+    if (len(str)==2){
+        return 0;
+    }
+    printf("Expected 2. Got %d.", len(str));
+    return 1;
 }
