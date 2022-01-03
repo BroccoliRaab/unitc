@@ -6,5 +6,5 @@ tests: src/unit.c src/tests.m4
 	gcc build/c/unit.c -Wall -Wpedantic -Werror -Debug -O0 -o run_tests
 
 clean:
-	rm -rf build
+	rm -rf build run_tests
 
