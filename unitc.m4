@@ -10,21 +10,21 @@ define(`include_all',
 include_all(test_includes)
 
 
-int (*unit_tests[])(void)= {
+static const int (*_unitc_unit_tests[])(void)= {
     undivert(1)
     NULL
 };
 
-char* test_names[] = {
+static const char * _unitc_test_names[] = {
     undivert(2)
 };
 
 #include <stdio.h>
 int main(){
     unsigned int failed_tests = 0;
-    for (size_t i=0; unit_tests[i]!=NULL; i++){
-        int result = !!(unit_tests[i]());
-        printf("%s: %s.\n",test_names[i], result?"FAILED":"PASSED");
+    for (size_t i=0; _unitc_unit_tests[i]!=NULL; i++){
+        int result = !!(_unitc_unit_tests[i]());
+        printf("%s: %s.\n",_unitc_test_names[i], result?"FAILED":"PASSED");
         failed_tests += result;
     }
     if (failed_tests){
