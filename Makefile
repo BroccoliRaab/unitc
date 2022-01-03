@@ -1,8 +1,10 @@
 .PHONY: tests clean
-tests: unit.c tests.m4
-	m4 <tests.m4 >tests.h
-	gcc unit.c -Wall -Wpedantic -Werror -Debug -O0 -o run_tests
+tests: src/unit.c src/tests.m4
+	mkdir -p build/c
+	m4 -D test_includes=$(shell ls tests/*.m4 | tr '\n' ',') < src/tests.m4 > build/c/tests.h
+	cp src/unit.c build/c/unit.c
+	gcc build/c/unit.c -Wall -Wpedantic -Werror -Debug -O0 -o build/run_tests
 
 clean:
-	rm tests.h run_tests
+	rm -rf build
 
