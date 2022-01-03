@@ -1,6 +1,6 @@
 divert(0)
 
-define(`new_test', `divert(1) __test_case_$1, divert(0)int __test_case_$1()')
+define(`new_test', `divert(1) $1, divert(0) int $1()')
 
 define(`include_all',
     `ifelse(
