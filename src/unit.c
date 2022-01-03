@@ -3,12 +3,14 @@
 int main(){
     unsigned int failed_tests = 0;
     for (size_t i=0; unit_tests[i]!=NULL; i++){
-        failed_tests += unit_tests[i]();
+        int result = !!(unit_tests[i]());
+        printf("%s: %s.\n",test_names[i], result?"FAILED":"PASSED");
+        failed_tests += result;
     }
     if (failed_tests){
         printf("FAILED %u TESTS.\n", failed_tests);
     }else{
-            puts("ALL TESTS PASSED");   
+        puts("ALL TESTS PASSED");   
     }
     return 0;
 }
