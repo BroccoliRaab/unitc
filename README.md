@@ -9,7 +9,7 @@ Create an m4 file in ``/tests``.
 In that start writing a test case as such:
 
 ```
-newtest(test name){
+new_test(test name){
   test body
 } 
 ```
