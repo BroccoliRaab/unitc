@@ -2,10 +2,13 @@
 #include <stdio.h>
 
 new_test(malloc_test){
-    if (malloc(sizeof(int))){
+    void * mem = malloc(sizeof(int));
+    if (mem){
+        free(mem);
         return 0;
     }
     puts("Cannot allocate heap memory");
+    free(mem);
     return 1;
 } 
 
