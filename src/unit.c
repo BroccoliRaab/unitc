@@ -12,5 +12,5 @@ int main(){
     }else{
         puts("ALL TESTS PASSED");   
     }
-    return 0;
+    return failed_tests;
 }
